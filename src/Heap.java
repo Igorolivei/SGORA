@@ -9,67 +9,112 @@ public class Heap implements InterfaceArvore{
     
     
     /**
-    * Atributo que aponta para o n√≥ filho da esquerda.
+    * Atributo que representa o arranjo de uma arvore heap.
     */
-    public ArrayList <NoHeap> arrayHeap = new ArrayList<NoHeap>();
-    /**
-    * Atributo que aponta para o n√≥ cabe√ßa.
-    */
-    private NoHeap head;
+    private ArrayList <NoHeap> arrayHeap = new ArrayList<NoHeap>();
       
     /**
-    * Construtor da classe.
-    */
-    public Heap() {
-        this.head = null;
-    }
-    
-    /**
-    * Construtor da classe.
-    */
-    public Heap(NoHeap head) {
-        this.head = head;
-    }
-    
-    /**
-     * Retorna o indice do pai de um n√≥
+     * Retorna o indice do pai de um nÛ
      * @param i
      * @return Indice do arrayList
      */
-    public NoHeap pai(int i){
-        return arrayHeap.get(i/2);
+    public int pai(int i){
+        return ((i-1)/2);
     }
 
     /**
-    * Retorna o indice do filho esquerdo de um n√≥
+    * Retorna o indice do filho esquerdo de um nÛ
     * @param i
     * @return Indice do arrayList
     */
     public int esquerdo(int i){
-        return (i*2);
+        return ((i*2)+1);
     }
     
     /**
-     * Retorna o indice do filho de um n√≥
+     * Retorna o indice do filho de um nÛ
      * @param i
      * @return Indice do arrayList
      */
     public int direito(int i){
-        return (i*2+1);
+    	return ((i*2)+2);
     }
     
-    public void subir(int i, int n){
-        
+    /**
+     * Sobe corrigindo a arvore
+     * usado na inserÁ„o
+     * @param i
+     */
+    public void subir(int i){
+    	if ((i > 0) && ( this.arrayHeap.get(this.pai(i)).getQuantidade() > this.arrayHeap.get(i).getQuantidade()) ){
+        	NoHeap temp = this.arrayHeap.get(pai(i));
+        	this.arrayHeap.set(this.pai(i), this.arrayHeap.get(i));
+        	this.arrayHeap.set(i, temp);
+        	this.subir(this.pai(i));
+        }
     }
     
+    /**
+     * Desce corrigindo a arvore
+     * usado na remoÁ„o
+     * @param i
+     */
+    public void descer(int i){
+    	int filho;
+    	if ( (this.direito(i) <= (arrayHeap.size()-1)) && (this.arrayHeap.get(this.direito(i)).getQuantidade() < this.arrayHeap.get(esquerdo(i)).getQuantidade()) ){
+    		filho = this.direito(i);
+    	}else{
+    		filho = this.esquerdo(i);
+    	}
+    	if ( (filho <= (arrayHeap.size()-1)) && (this.arrayHeap.get(filho).getQuantidade() < this.arrayHeap.get(i).getQuantidade()) ){
+    		NoHeap temp = this.arrayHeap.get(i);
+        	this.arrayHeap.set(i, this.arrayHeap.get(filho));
+        	this.arrayHeap.set(filho, temp);
+        	this.descer(filho);
+    	}
+    }
+    
+    /**
+     * Metodo que corrige a arvore a partir de um indice.
+     * @param i
+     */
+    public void heapify(int i){
+    	int l = this.esquerdo(i);
+    	int r = this.direito(i);
+    	int menor;
+    	if ( (l <= (this.arrayHeap.size()-1) ) && (this.arrayHeap.get(l).getQuantidade() < this.arrayHeap.get(i).getQuantidade()) ){
+    		menor = l;
+    	}else{
+    		menor = i;
+    	}
+    	if ( (r <= (this.arrayHeap.size()-1)) && (this.arrayHeap.get(r).getQuantidade() < this.arrayHeap.get(menor).getQuantidade()) ){
+    		menor = r;
+    	}
+    	if(menor != i){
+    		NoHeap temp = this.arrayHeap.get(i);
+        	this.arrayHeap.set(i, this.arrayHeap.get(menor));
+        	this.arrayHeap.set(menor, temp);
+        	this.heapify(menor);
+    	}
+    }
+    
+    /**
+     * MÈtodo que insere um elemento elemento.
+     */
     @Override
-    public void inserir(NoHeap no) {
-        
+    public void inserir(NoHeap novoNo) {
+        this.arrayHeap.add(novoNo);
+        this.subir(this.arrayHeap.size()-1);
     }
 
+    /**
+     * MÈtodo que remove o menor elemento.
+     */
     @Override
     public void remover() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.arrayHeap.set(0, this.arrayHeap.get(this.arrayHeap.size()-1));
+        this.arrayHeap.remove((this.arrayHeap.size()-1));
+        this.descer(0);
     }
 
     @Override
