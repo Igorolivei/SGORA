@@ -1,10 +1,8 @@
 import java.util.ArrayList;
+import java.io.IOException;
 
-public abstract class GeradorArquivoTXT {
-	
-	public ArrayList<Animal> leArquivo(String sPath) {
-		ArrayList<Animal> a = new ArrayList<Animal>();
-		
-		return a;
-	}
+public interface GeradorArquivoTXT<Object> {
+
+	public void escrever(Object o) throws IOException;
+	public ArrayList<Animal> lerAnimais();
 }
