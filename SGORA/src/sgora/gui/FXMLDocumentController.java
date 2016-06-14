@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sgora;
+package sgora.gui;
 
 import sgora.arvores.NoHeap;
 import sgora.arvores.Heap;
@@ -17,6 +17,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import sgora.Animal;
+import sgora.AnimalAquatico;
+import sgora.AnimalTerrestre;
 
 /**
  * Controller da aplicação
