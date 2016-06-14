@@ -7,9 +7,15 @@ import java.util.ArrayList;
  * @author Allan & Igor
  */
 public class Heap implements InterfaceArvore{
-    
+    /**
+     * Arranjo do heap
+     */
     private ArrayList <NoHeap> arrayHeap = new ArrayList<NoHeap>();
 
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<NoHeap> getArrayHeap() {
         return arrayHeap;
     }
@@ -123,9 +129,15 @@ public class Heap implements InterfaceArvore{
 
     @Override
     public void imprimir() {
+       
+    }
+    
+    public String imprimirLista() {
+        String lista = "";
         for (int i = 0; i < this.arrayHeap.size(); i++){
-            System.out.println(this.arrayHeap.get(i).toString());
+            lista = lista + this.arrayHeap.get(i).toString();
         }
+        return lista;
     }
 
 	@Override

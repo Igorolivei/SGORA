@@ -22,7 +22,7 @@ public abstract class Animal {
 	/**
 	 * Sexo do animal
 	 */
-	private char sexo;
+	private String sexo;
 	/**
 	 * Alimento do animal
 	 */
@@ -32,12 +32,11 @@ public abstract class Animal {
 	 */
 	private int tempoAlimentacao;
 
-    public Animal(int codigo, String nome, String especie) {
+    public Animal(int codigo, String nome, String especie, String sexo) {
         this.codigo = codigo;
         this.nome = nome;
         this.especie = especie;
         this.sexo = sexo;
-        this.alimento = alimento;
     }
 	
         
@@ -121,14 +120,14 @@ public abstract class Animal {
 	 * Retorna o sexo do animal
 	 * @return char sexo
 	 */
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 	/**
 	 * Define o sexo do animal
 	 * @param sexo char
 	 */
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
         

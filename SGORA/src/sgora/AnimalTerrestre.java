@@ -7,8 +7,8 @@ package sgora;
  */
 public class AnimalTerrestre extends Animal {
 
-    public AnimalTerrestre(int codigo, String nome, String especie) {
-        super(codigo, nome, especie);
+    public AnimalTerrestre(int codigo, String nome, String especie,String sexo) {
+        super(codigo, nome, especie, sexo);
     }
     
 }

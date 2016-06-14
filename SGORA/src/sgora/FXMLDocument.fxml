@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="410.0" prefWidth="511.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sgora.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="410.0" prefWidth="511.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sgora.FXMLDocumentController">
     <children>
       <TabPane layoutY="3.0" prefHeight="410.0" prefWidth="511.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -14,7 +14,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                          <Button fx:id="button" layoutX="28.0" layoutY="267.0" onAction="#handleButtonAction" text="Cadastrar" />
+                          <Button fx:id="button" layoutX="34.0" layoutY="280.0" onAction="#handleButtonAction" text="Cadastrar" />
                         <TextField fx:id="campoNome" layoutX="113.0" layoutY="69.0" prefHeight="25.0" prefWidth="217.0" />
                         <Label layoutX="41.0" layoutY="71.0" prefHeight="21.0" prefWidth="52.0" text="Nome:" />
                         <Label layoutX="40.0" layoutY="109.0" prefHeight="21.0" prefWidth="55.0" text="Espécie:" />
@@ -28,6 +28,14 @@
                         <RadioButton fx:id="radioFemea" layoutX="218.0" layoutY="151.0" mnemonicParsing="false" text="Fêmea" toggleGroup="$sexo" />
                         <Label layoutX="35.0" layoutY="182.0" text="Quantidade:" />
                         <TextField fx:id="campoQuantidade" layoutX="114.0" layoutY="178.0" prefHeight="12.0" prefWidth="73.0" />
+                        <RadioButton fx:id="radioAquatico" layoutX="218.0" layoutY="221.0" mnemonicParsing="false" text="Aquático">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="TipoDeAnimal" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radioTerrestre" layoutX="114.0" layoutY="221.0" mnemonicParsing="false" selected="true" text="Terrestre" toggleGroup="$TipoDeAnimal" />
+                        <RadioButton fx:id="radioAereo" layoutX="330.0" layoutY="221.0" mnemonicParsing="false" text="Aéreo" toggleGroup="$TipoDeAnimal" />
+                        <Label layoutX="20.0" layoutY="221.0" text="Tipo de Animal:" />
                      </children>
                   </AnchorPane>
             </content>
@@ -36,12 +44,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="listaDeAnimais" prefHeight="380.0" prefWidth="511.0">
-                          <columns>
-                            <TableColumn fx:id="tabelaNomeAnimal" prefWidth="260.0" text="Nome do Animal" />
-                            <TableColumn fx:id="tabelaQuantidadeAnimal" prefWidth="250.0" text="Quantidade" />
-                          </columns>
-                        </TableView>
+                        <TextArea fx:id="listaDeAnimais" prefHeight="385.0" prefWidth="511.0" />
                      </children>
                   </AnchorPane>
             </content>
