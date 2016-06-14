@@ -35,11 +35,20 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Animais em Extinção">
+          <Tab text="Lista dos animais">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextArea fx:id="listaDeAnimais" prefHeight="385.0" prefWidth="511.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Animais em Extinção">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="listaDeAnimaisExtincao" prefHeight="385.0" prefWidth="511.0" />
                      </children>
                   </AnchorPane>
             </content>

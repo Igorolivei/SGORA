@@ -1,5 +1,6 @@
-package sgora;
+package sgora.arvores;
 
+import sgora.arvores.InterfaceArvore;
 import java.util.ArrayList;
 
 /**

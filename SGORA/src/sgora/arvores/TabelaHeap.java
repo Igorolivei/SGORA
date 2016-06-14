@@ -1,5 +1,6 @@
-package sgora;
+package sgora.arvores;
 
+import sgora.arvores.NoHeap;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

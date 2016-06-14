@@ -1,4 +1,6 @@
-package sgora;
+package sgora.arvores;
+
+import sgora.Animal;
 
 public class NoAVL{
 

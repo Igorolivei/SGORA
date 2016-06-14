@@ -1,4 +1,4 @@
-package sgora;
+package sgora.arvores;
 
 /**
  * Interface responsável por definir métodos comuns para as arvores.

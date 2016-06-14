@@ -1,4 +1,6 @@
-package sgora;
+package sgora.arvores;
+
+import sgora.Animal;
 
 /**
  * Classe que representa um nó de uma arvore Heap

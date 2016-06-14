@@ -5,6 +5,8 @@
  */
 package sgora;
 
+import sgora.arvores.NoHeap;
+import sgora.arvores.Heap;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -12,13 +14,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * Controller da aplicação
@@ -60,6 +58,9 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private TextArea listaDeAnimais;
+    
+    @FXML
+    private TextArea listaDeAnimaisExtincao;
         
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -96,7 +97,7 @@ public class FXMLDocumentController implements Initializable {
         }
         extintos = "Animais extintos (0 exemplares ou exemplares de apenas um sexo): \n";
         riscoExtincao = "Animais com risco de extinção (há casais, mas menos de 10 exemplares):\n";
-        todos = "Todos os animais:\n";
+        todos = "";
         initialize();
     }
     
@@ -115,7 +116,7 @@ public class FXMLDocumentController implements Initializable {
             } else if (quantFemea > 0 && quantMacho > 0 && quantTotal < 10) {
                 animaisRiscoExtincao.add(nos.get(i).getAnimal());
             }
-            todos += nos.get(i).getAnimal().toString();
+            todos += nos.get(i).getAnimal().toString()+"\n";
         }
         
         for(int i = 0; i < animaisExtintos.size(); i++){
@@ -125,7 +126,9 @@ public class FXMLDocumentController implements Initializable {
         for(int i = 0; i < animaisRiscoExtincao.size(); i++){
             riscoExtincao += animaisRiscoExtincao.get(i).toString()+"\n";
         }
-        listaDeAnimais.setText(extintos+"\n"+riscoExtincao+"\n"+todos);
+        
+        listaDeAnimais.setText(todos);
+        listaDeAnimaisExtincao.setText(extintos+"\n"+riscoExtincao);
     }
     
     @Override
