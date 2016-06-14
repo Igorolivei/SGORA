@@ -20,9 +20,13 @@ public abstract class Animal {
 	 */
 	private String especie;
 	/**
-	 * Sexo do animal
+	 * Quantidade de animais machos
 	 */
-	private String sexo;
+	private int quantMacho;
+        /**
+	 * Quantidade de animais femeas
+	 */
+	private int quantFemea;
 	/**
 	 * Alimento do animal
 	 */
@@ -32,11 +36,12 @@ public abstract class Animal {
 	 */
 	private int tempoAlimentacao;
 
-    public Animal(int codigo, String nome, String especie, String sexo) {
+    public Animal(int codigo, String nome, String especie, int quantMacho, int quantFemea) {
         this.codigo = codigo;
         this.nome = nome;
         this.especie = especie;
-        this.sexo = sexo;
+        this.quantMacho = quantMacho;
+        this.quantFemea = quantFemea;
     }
 	
         
@@ -117,26 +122,42 @@ public abstract class Animal {
 	}
 	
 	/**
-	 * Retorna o sexo do animal
-	 * @return char sexo
+	 * Retorna a quantidade de animais machos
+	 * @return char quantMacho
 	 */
-	public String getSexo() {
-		return sexo;
+	public int getQuantMacho() {
+		return quantMacho;
 	}
 	/**
-	 * Define o sexo do animal
-	 * @param sexo char
+	 * Define a quantidade de animais machos
+	 * @param quantMacho char
 	 */
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setQuantMacho(int quantMacho) {
+		this.quantMacho = quantMacho;
+	}
+
+        /**
+	 * Retorna a quantidade de animais femeas
+	 * @return char quantFemea
+	 */
+	public int getQuantFemea() {
+		return quantFemea;
+	}
+	/**
+	 * Define a quantidade de animais femeas
+	 * @param quantFemea char
+	 */
+	public void setQuantFemea(int quantFemea) {
+		this.quantFemea = quantFemea;
 	}
         
         @Override
         public String toString() {
-        return this.getCodigo()+
-               "\n" + this.getNome() +
-               "\n" + this.getEspecie() +
-               "\n" + this.getSexo();
+        return " Código do Animal: " + this.getCodigo()+
+               " | Nome: " + this.getNome() +
+               " | Espécie/Nome Científico: " + this.getEspecie() +
+               " | Machos: " + this.getQuantMacho() +
+               " | Fêmeas: " + this.getQuantFemea();
         }
 
 }

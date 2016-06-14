@@ -6,7 +6,7 @@ package sgora;
  */
 public class AnimalAquatico extends Animal{
 
-    public AnimalAquatico(int codigo, String nome, String especie, String sexo) {
-        super(codigo, nome, especie, sexo);
+    public AnimalAquatico(int codigo, String nome, String especie, int quantMacho, int quantFemea) {
+        super(codigo, nome, especie, quantMacho, quantFemea);
     }
 }
